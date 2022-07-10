@@ -1,0 +1,33 @@
+{{ define "body" }}
+
+  <div class="Layout Layout--divided">
+
+    <div class="Layout-main border p-3">
+
+        <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+        {{.Content}}
+
+        <p>
+        <ul class="ActionList">
+          {{ range .Site.RegularPages }}
+          <li class="ActionList-item">
+            <a href="{{.Permalink}}" class="ActionList-content">
+              <span class="ActionList-item-label" >{{.Title}}</span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </p>
+      
+    </div>
+
+    <div class="Layout-divider"></div>
+
+    <div class="Layout-sidebar">
+        {{ partial "sidenav.html" . }}
+    </div>
+
+  </div>
+
+
+{{ end }}

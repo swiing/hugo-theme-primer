@@ -1,0 +1,9 @@
+{{/*
+input dict parameters:
+    Content: any
+    type (optional): "primary" | "outline" | "danger" | "invisible"
+    state (optional): "disabled" | "selected"
+*/}}
+<button class="btn{{ with .type }} btn-{{.}}{{end}}" 
+    {{ with .state }}aria-{{.}}="true"{{end}} 
+    type="button">{{.Content}}</button>

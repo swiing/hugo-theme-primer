@@ -1,0 +1,8 @@
+{{ $Current := .Current }}
+{{ range .Pages }}
+{{ partial "component/sidenav/item.html" (dict
+    "subItem" true
+    "href" .Permalink 
+    "Current" (eq . $Current)
+    "Content" .Title) }}
+{{ end }}

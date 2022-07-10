@@ -1,0 +1,22 @@
+{{$IsSection := .IsSection }}
+{{$Section := .Section }}
+{{$Current := . -}}
+
+{{/* display all sections */}}
+{{ range .Site.Sections }}
+    {{ partial "component/sidenav/item.html" (dict
+        "href" .Permalink 
+        "Current" (and $IsSection (eq .Section $Section))
+        "Content" .Title) }}
+    {{ if (eq .Section $Section) }}
+        {{/* display pages for the current section */}}
+        {{ with partial "sidenav/subitems.html" (dict
+            "Pages" .Pages
+            "Current" $Current) }}
+            {{ partial "component/sidenav.html" (dict
+                "Class" "color-bg-default border-top py-3"
+                "Style" "padding-left: 44px"
+                "Content" .) }}
+        {{ end }}
+    {{ end }}
+{{ end }}

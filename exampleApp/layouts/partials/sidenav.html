@@ -1,0 +1,8 @@
+{{ $Context := . }}
+
+{{ with partial "sidenav/items.html" . }}
+    {{ partial "component/sidenav.html" (dict
+        "Class" "border"
+        "Style" "max-width: 360px"
+        "Content" .) }}
+{{ end }}

@@ -1,0 +1,52 @@
+{{/*
+
+This template makes use of css primer AppFrame.
+Input:
+    head: partial (optional)
+    body: block
+    header: partial (optional)
+    subheader: partial (optional)
+    footer: partial (optional)
+
+*/ -}}
+<!DOCTYPE html>
+<html data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" data-a11y-animated-images="system" lang="en">
+    <head>
+        {{- partial "primer/head.html" . -}}
+        {{- partial "primer/link.html" . -}}
+        {{- partial "head.html" . -}}
+    </head>
+    <body class="page-responsive" style="word-wrap: break-word;">
+        <div class="AppFrame">
+            <div class="AppFrame-main">
+
+                <!-- header -->
+                {{ if gt (len (partial "subheader.html")) 0 }}
+                <div class="AppFrame-header-wrapper">
+                    <div class="AppFrame-header">
+                        {{- partial "header.html" . -}}
+                    </div>
+                    {{ if gt (len (partial "subheader.html")) 0 }}
+                    <div class="AppFrame-subheader">
+                        {{- partial "subheader.html" . -}}
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+
+                <!-- body -->
+                <div class="AppFrame-body m-3">
+                    {{- block "body" . }}{{- end }}
+                </div>
+
+                <!-- footer -->
+                {{ if gt (len (partial "footer.html")) 0 }}
+                <div class="AppFrame-footer">
+                    {{- partial "footer.html" . -}}
+                </div>
+                {{ end }}
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+{{ partial "breadcrumbs.html" . }}
+<article class="markdown-body">    
+    <header>
+        <h1>{{.Title}}</h1>
+    </header>
+    <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+    {{ .Content }}
+    {{ if .IsSection }}
+    <ul>
+        <!-- Ranges through content/xxx/*.md -->
+        {{ range .Pages }}
+            <li>
+                <a href="{{.Permalink}}">{{.Title}}</a>
+            </li>
+        {{ end }}
+    </ul>
+    {{ end }}
+</article>

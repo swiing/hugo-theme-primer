@@ -1,0 +1,4 @@
+<button 
+    class="btn{{ with .Get 0 }} btn-{{.}}{{end}}"
+    {{ with .Get 1 }}aria-{{.}}="true"{{end}} 
+    type="button">{{.Inner}}</button>
