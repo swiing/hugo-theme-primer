@@ -1,0 +1,13 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+
+
+
+# [outputs]
+#   home = ['MARKDOWN']
+#   page = ['MARKDOWN']
+#   section = []
+#   taxonomy = []
+#   term = []
+

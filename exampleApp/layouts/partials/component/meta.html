@@ -1,0 +1,13 @@
+{{ $date := .Date.UTC.Format "Jan 2, 2006" }}
+{{ $lastmod := .Lastmod.UTC.Format "Jan 2, 2006" }}
+
+<nav class="SideNav">
+    <a class="SideNav-subItem" href="{{ print "https://primer.style/css/" .File.Dir .File.BaseFileName}}">primer official documentation</a>
+    {{ if ne $date "Jan 1, 0001" }}
+    <span class="">Published: {{ $date }}</span><br>
+    {{ end }}
+    {{ if and (ne $lastmod $date) (gt .Lastmod .Date) }}
+    <span class="">Last modified: {{ $lastmod }}</span>
+    {{ end }}
+    <a class="SideNav-subItem" href="https://github.com/swiing/hugo-theme-primer/blob/main/exampleApp/content/{{ replace .File.Path "\\" "/" }}">Edit</a>
+</nav>

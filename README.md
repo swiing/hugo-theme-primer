@@ -7,6 +7,7 @@
 ## Documentation & experimentation
 
 The directory `exampleApp/` contains an example which
+
 - provides documentation
 - uses itself the theme
 

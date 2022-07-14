@@ -21,7 +21,7 @@ Input:
             <div class="AppFrame-main">
 
                 <!-- header -->
-                {{ if gt (len (partial "subheader.html")) 0 }}
+                {{ if gt (len (partial "header.html")) 0 }}
                 <div class="AppFrame-header-wrapper">
                     <div class="AppFrame-header">
                         {{- partial "header.html" . -}}
@@ -35,7 +35,7 @@ Input:
                 {{ end }}
 
                 <!-- body -->
-                <div class="AppFrame-body m-3">
+                <div class="AppFrame-body">
                     {{- block "body" . }}{{- end }}
                 </div>
 

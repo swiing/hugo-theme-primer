@@ -1,29 +1,44 @@
 {{ define "body" }}
 
-  <div class="Layout Layout--divided">
+  {{/*  <div class="Layout Layout--divided">  */}}
+  <div class="Layout">
 
-    <div class="Layout-main border p-3">
+    <div class="Layout-main">
 
-        <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-        {{.Content}}
+      <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
+        
+        <div class="Layout-main p-3">
+          <article class="markdown-body"> 
 
-        <p>
-        <ul class="ActionList">
-          {{ range .Site.RegularPages }}
-          <li class="ActionList-item">
-            <a href="{{.Permalink}}" class="ActionList-content">
-              <span class="ActionList-item-label" >{{.Title}}</span>
-            </a>
-          </li>
-          {{ end }}
-        </ul>
-      </p>
-      
+            <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+            {{.Content}}
+    
+            <p>
+            <ul class="ActionList">
+              {{ range .Site.RegularPages }}
+              <li class="ActionList-item">
+                <a href="{{.Permalink}}" class="ActionList-content">
+                  <span class="ActionList-item-label" >{{.Title}}</span>
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+            </p>
+    
+          </article>
+        </div>
+        
+        <aside class="Layout-sidebar p-3">
+            {{ partial "element/toc.html" . }}
+            <hr>
+            {{ partial "component/meta.html" . }}
+        </aside>
     </div>
+    </div>
+      
+    {{/*  <div class="Layout-divider"></div>  */}}
 
-    <div class="Layout-divider"></div>
-
-    <div class="Layout-sidebar">
+    <div class="Layout-sidebar color-bg-accent p-3">
         {{ partial "sidenav.html" . }}
     </div>
 

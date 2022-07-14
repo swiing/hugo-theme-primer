@@ -3,3 +3,15 @@ languageCode = 'en-us'
 title = 'Hugo Theme Primer'
 
 theme = ["hugo-theme-primer"]
+
+enableGitInfo = true
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    ordered = false
+    startLevel = 2
+
+
+  [markup.goldmark.renderer]
+    unsafe= true # allow html tags in content files

@@ -1,13 +1,16 @@
 {{ partial "breadcrumbs.html" . }}
-<article class="markdown-body">    
+<article class="markdown-body">
+
     <header>
         <h1>{{.Title}}</h1>
     </header>
-    <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+
     {{ .Content }}
+    
+    {{/* display list of pages for this section */}}
     {{ if .IsSection }}
     <ul>
-        <!-- Ranges through content/xxx/*.md -->
+        {{/* Ranges through content/xxx/*.md */}}
         {{ range .Pages }}
             <li>
                 <a href="{{.Permalink}}">{{.Title}}</a>
@@ -15,4 +18,26 @@
         {{ end }}
     </ul>
     {{ end }}
+
+    {{/* display source code */}}
+    {{ if .IsPage }}
+        
+        {{ $path := string (print "/layouts/partials" (
+            replaceRE  "/$" ".html" (
+            replaceRE "(component|element)s/" "$1/" .RelPermalink) ) ) }}
+        {{ if fileExists $path }}
+        <h2>Source code</h2>
+        <details class="dropdown details-reset details-overlay ">
+            <summary class="color-fg-muted d-inline" aria-haspopup="true">{{ $path }} <span class="dropdown-caret"></summary>
+            <div class="Box">
+                <div class="Box-row pb-0">
+                <span class="Label float-right ">template</span>
+                {{ $code := readFile $path }}
+                {{ highlight $code "html" }}
+            </div>
+        </div>
+          </details>
+        {{ end }}
+    {{ end }}
+
 </article>

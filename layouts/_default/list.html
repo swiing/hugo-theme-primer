@@ -13,13 +13,14 @@
 {{ if eq (len (partial "sidenav.html" .)) 0 }}
 {{- block "_content" . }}{{- end }}
 {{ else }}
-<div class="Layout Layout--divided">
+{{/*  <div class="Layout Layout--divided">  */}}
+<div class="Layout">
 
 <div class="Layout-main border p-3">
     {{- block "_content" . }}{{- end }}
 </div>
 
-<div class="Layout-divider"></div>
+{{/*  <div class="Layout-divider"></div>  */}}
 
 <div class="Layout-sidebar">
     {{ partial "sidenav.html" . }}

@@ -1,0 +1,15 @@
+{{ $icon := "" }}
+{{ $class := "" }}
+
+{{ if reflect.IsMap . }}
+    {{ $icon = .icon }}
+    {{ $class = .class }}
+{{ else }}{{/* assume string */}}
+    {{ $icon = . }}
+    {{ $class = "" }}
+{{ end }}
+
+{{ partial "util/svgpath16px.html" (dict 
+    "icon" $icon
+    "class" (print "octicon octicon-" $icon " " $class )
+)}}

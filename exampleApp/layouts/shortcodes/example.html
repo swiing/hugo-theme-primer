@@ -1,0 +1,52 @@
+
+
+  {{ $path := "" }}
+  {{ with .Page }}
+        {{ $path = .Path }}
+  {{ else }}
+        {{ $path = .Path }}
+  {{ end }}
+
+{{ $self := print "/content/" $path }}
+{{ $code0 := readFile $self }}
+{{ $all := findRE "(?s){{<(\\s)*example(\\s)*>}}.*?{{</(\\s)*example(\\s)*>}}" $code0}}
+
+{{ $code := replaceRE "\n?{{</?(\\s)*example(\\s)*>}}\n?" ""  (index $all .Ordinal ) }}
+
+<div class="Box p-0">
+    <div class="Box-header">
+        {{/* height will be computed and set later below */}}
+        <iframe  width="100%" height="0" style="border:none;" ></iframe>
+        <script>
+            const frame = document.currentScript.previousElementSibling;
+
+            // set the height of the iframe as the height of the iframe content
+            function resize() {
+                frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
+            }
+
+            frame.contentDocument.write(
+            `<link href="https://unpkg.com/@primer/css@^19.0.0/dist/primer.css" rel="stylesheet" />`
+            + {{ .Inner }});
+//            resize();
+            // wait a bit to make sure stylesheet is applied
+            // I coudl'n find a better way :(
+            setTimeout(resize, 100); // try super-fast
+            setTimeout(resize, 300);
+            setTimeout(resize, 500); // really make sure we are done!
+            const body = frame.contentWindow.document.body
+
+            new MutationObserver(resize)
+            .observe(body, { attributes: true, childList: true, subtree: true });
+        </script>
+    </div>
+    <div class="Box-row pb-0">
+        <span class="Label float-right ">shortcode</span>
+        {{ highlight $code "md" }}
+    </div>
+    <div class="Box-row pb-0">
+        <span class="Label float-right ">html</span>
+        {{ highlight .Inner "html" }}
+    </div>
+</div>
+
