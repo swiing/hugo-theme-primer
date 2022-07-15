@@ -18,6 +18,7 @@
         {{/* height will be computed and set later below */}}
         <iframe  width="100%" height="0" style="border:none;" ></iframe>
         <script>
+          (function() {
             const frame = document.currentScript.previousElementSibling;
 
             // set the height of the iframe as the height of the iframe content
@@ -38,6 +39,7 @@
 
             new MutationObserver(resize)
             .observe(body, { attributes: true, childList: true, subtree: true });
+          })()
         </script>
     </div>
     <div class="Box-row pb-0">
