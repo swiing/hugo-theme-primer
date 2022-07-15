@@ -1,0 +1,20 @@
+# Not strictly needed, as it can be all configured via the netlify UI
+# but good to track
+
+[build]
+  publish = "exampleApp/public"
+  command = "cd exampleApp && hugo --gc --themesDir ../.."
+
+# https://discourse.gohugo.io/t/deploy-your-theme-to-netlify/15508
+#
+# HUGO_XXX set the xxx variable for hugo
+#
+# To be noted that environment settings from the netlify UI take precedence
+# over config.toml (and over netlify.toml I believe).
+
+[build.environment]
+  HUGO_THEME = "repo" # netlify clones the repository, and renames the directory "repo"
+  HUGO_VERSION = "0.100.1"
+
+[context.production.environment]
+  HUGO_BASEURL = "https://hugo-theme-primer.netlify.app/"
