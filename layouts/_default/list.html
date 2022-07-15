@@ -1,8 +1,8 @@
-{{/* 
+{{/*
     template for _index.md files
 */}}
 
-{{ define "partials/content.html" }}{{.Content}}{{ end }}
+{{ define "partials/content.html" }}{{ .Content | emojify }}{{ end }}
 
 {{/* Inspired by https://gohugo.io/templates/lists/#example-project-directory */}}
 {{ define "_content" }}

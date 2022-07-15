@@ -1,11 +1,11 @@
 {{/* https://discourse.gohugo.io/t/how-do-i-override-base-template-blocks-from-a-theme-component/28207/6 */}}
 {{/* This provides a default content, and can be overiden by providing an adhoc partials/content.html */}}
-{{ define "partials/content.html" }}{{.Content}}{{ end }}
+{{ define "partials/content.html" }}{{ .Content | emojify }}{{ end }}
 
 {{ define "body" }}
 
     {{ if eq (len (partial "sidenav.html" .)) 0 }}
-        {{.Content}}
+        {{ .Content | emojify }}
     {{ else }}
     {{/*  <div class="Layout Layout--divided">  */}}
     <div class="Layout ">

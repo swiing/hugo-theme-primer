@@ -5,7 +5,7 @@
         <h1>{{.Title}}</h1>
     </header>
 
-    {{ .Content }}
+    {{ .Content | emojify }}
 
     {{/* display list of pages for this section */}}
     {{ if .IsSection }}
