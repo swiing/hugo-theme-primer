@@ -5,7 +5,7 @@
 {{/* display all sections */}}
 {{ range .Site.Sections }}
     {{ partial "component/sidenav/item.html" (dict
-        "href" .Permalink 
+        "href" .RelPermalink
         "Current" (and $IsSection (eq .Section $Section))
         "Content" .Title) }}
     {{ if (eq .Section $Section) }}
@@ -14,7 +14,7 @@
             "Pages" .Pages
             "Current" $Current) }}
             {{ partial "component/sidenav.html" (dict
-                "Class" "color-bg-default border-top py-3"
+                "Class" "color-bg-subtle border-top py-3"
                 "Style" "padding-left: 44px"
                 "Content" .) }}
         {{ end }}

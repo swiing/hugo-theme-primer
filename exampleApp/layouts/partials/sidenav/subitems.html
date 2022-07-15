@@ -2,7 +2,7 @@
 {{ range .Pages }}
 {{ partial "component/sidenav/item.html" (dict
     "subItem" true
-    "href" .Permalink 
+    "href" .RelPermalink
     "Current" (eq . $Current)
     "Content" .Title) }}
 {{ end }}

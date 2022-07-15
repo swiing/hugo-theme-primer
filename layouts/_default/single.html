@@ -1,35 +1,35 @@
 {{/* https://discourse.gohugo.io/t/how-do-i-override-base-template-blocks-from-a-theme-component/28207/6 */}}
 {{/* This provides a default content, and can be overiden by providing an adhoc partials/content.html */}}
-{{ define "partials/content.html" }}{{.Content}}{{ end }}
+{{ define "partials/content.html" }}{{ .Content }}{{ end }}
 
 {{ define "body" }}
 
-    {{ if eq (len (partial "sidenav.html" .)) 0 }}
-        {{.Content}}
-    {{ else }}
-    {{/*  <div class="Layout Layout--divided">  */}}
-    <div class="Layout">
+  {{ if eq (len (partial "sidenav.html" .)) 0 }}
+    {{.Content}}
+  {{ else }}
+  {{/*  <div class="Layout Layout--divided">  */}}
+  <div class="Layout">
 
-        <div class="Layout-main">
+    <div class="Layout-main">
 
-            <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
-                <div class="Layout-main p-3">{{ partial "content" . }}</div>
-                <aside class="Layout-sidebar p-3">
-                    {{ partial "element/toc.html" . }}
-                    <hr>
-                    {{ partial "component/meta.html" . }}
-                </aside>
-            </div>
-            
-        </div>
-    
-        {{/*  <div class="Layout-divider"></div>  */}}
-
-        <div class="Layout-sidebar color-bg-accent p-3">
-            {{ partial "sidenav.html" . }}
-        </div>
+      <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
+        <div class="Layout-main p-3">{{ partial "content" . }}</div>
+        <aside class="Layout-sidebar p-3">
+          {{ partial "element/toc.html" .TableOfContents }}
+          <hr>
+          {{ partial "component/meta.html" . }}
+        </aside>
+      </div>
 
     </div>
-    {{ end }}
+
+    {{/*  <div class="Layout-divider"></div>  */}}
+
+    <div class="Layout-sidebar -accent p-3">
+      {{ partial "sidenav.html" . }}
+    </div>
+
+  </div>
+  {{ end }}
 
 {{ end }}

@@ -6,14 +6,14 @@
     </header>
 
     {{ .Content }}
-    
+
     {{/* display list of pages for this section */}}
     {{ if .IsSection }}
     <ul>
         {{/* Ranges through content/xxx/*.md */}}
         {{ range .Pages }}
             <li>
-                <a href="{{.Permalink}}">{{.Title}}</a>
+                <a href="{{.RelPermalink}}">{{.Title}}</a>
             </li>
         {{ end }}
     </ul>
@@ -21,7 +21,7 @@
 
     {{/* display source code */}}
     {{ if .IsPage }}
-        
+
         {{ $path := string (print "/layouts/partials" (
             replaceRE  "/$" ".html" (
             replaceRE "(component|element)s/" "$1/" .RelPermalink) ) ) }}

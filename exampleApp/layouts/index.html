@@ -6,39 +6,39 @@
     <div class="Layout-main">
 
       <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
-        
+
         <div class="Layout-main p-3">
-          <article class="markdown-body"> 
+          <article class="markdown-body">
 
             <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
             {{.Content}}
-    
+
             <p>
             <ul class="ActionList">
               {{ range .Site.RegularPages }}
               <li class="ActionList-item">
-                <a href="{{.Permalink}}" class="ActionList-content">
+                <a href="{{.RelPermalink}}" class="ActionList-content">
                   <span class="ActionList-item-label" >{{.Title}}</span>
                 </a>
               </li>
               {{ end }}
             </ul>
             </p>
-    
+
           </article>
         </div>
-        
+
         <aside class="Layout-sidebar p-3">
-            {{ partial "element/toc.html" . }}
+            {{ partial "element/toc.html" .TableOfContents }}
             <hr>
             {{ partial "component/meta.html" . }}
         </aside>
     </div>
     </div>
-      
+
     {{/*  <div class="Layout-divider"></div>  */}}
 
-    <div class="Layout-sidebar color-bg-accent p-3">
+    <div class="Layout-sidebar color-bg-subtle p-3">
         {{ partial "sidenav.html" . }}
     </div>
 
