@@ -2,17 +2,17 @@
 title: Welcome to Hugo Theme Primer
 ---
 
-# Welcome to Hugo Theme Primer
-
 `hugo-theme-primer` makes it easy to use primer in hugo.
 
-[hugo](https://gohugo.io) is an open source static site generators.
+[hugo](https://gohugo.io) is an open source static site generator.
 
 [primer.style](https://primer.style) is the framework that makes the foundation of Github's design system.
 
 [hugo theme primer](/) is a hugo theme bringing [primer.css](https://primer.style/css) to hugo.
 
 This site is the documentation for `hugo-theme-primer`. It is itself built based on this theme.
+
+> :bulb: This is exploratory work to check the concept is worthwhile. The theme is still very incomplete.
 
 ## How does it work
 
@@ -32,11 +32,6 @@ The theme provides utilities in the form of:
 In addition, it provides useful additions:
 
 - elements
-
-
-## Warning
-
-This is exploratory work to check the concept is worth. The theme is still very incomplete.
 
 ## All pages
 

@@ -10,6 +10,10 @@
         <div class="Layout-main p-3">
           <article class="markdown-body">
 
+            <header>
+              <h1>{{.Title}}</h1>
+            </header>
+
             <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
             {{ .Content | emojify }}
 
