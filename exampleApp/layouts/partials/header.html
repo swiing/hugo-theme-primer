@@ -13,13 +13,13 @@
   </div>
 
   {{ range .Site.Sections }}
-  <div class="Header-item{{ if eq (slice .) (last 1 .Site.Sections) }} Header-item--full{{ end }}">
+  <div class="Header-item{{ if eq (slice .) (last 1 .Site.Sections) }} Header-item--full{{ end }} hide-sm hide-md">
     <a class="Header-link" aria-label="{{ .Title }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
   </div>
   {{ end }}
 
   <div class="Header-item">
-    <a class="Header-link" aria-label="github" href="https://github.com/swiing/hugo-theme-primer">github</a>
+    <a class="Header-link" aria-label="github" href="https://github.com/swiing/hugo-theme-primer">{{ partial "component/button.html" (":star: Star me" | emojify) }}</a>
   </div>
 
 

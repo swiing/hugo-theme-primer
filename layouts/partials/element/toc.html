@@ -5,14 +5,16 @@
 {{/*  Check for non empty toc  */}}
 {{/* https://discourse.gohugo.io/t/check-for-empty-tableofcontents/29737/2 */}}
 {{ if ne . "<nav id=\"TableOfContents\"></nav>" }}
-  <p class="h4">What's on this page</p>
-  {{- /*
-      Note: I don't actually need regular expression here but,
-      because of the argument order which is different with replace,
-      I use replaceRE to improve readability
-  */ -}}
-  {{ .
-    | replaceRE "<ul>" "<ul class=\"list-style-none\">"
-    | replaceRE "<a " "<a class=\"color-fg-muted\" "
-    | safeHTML }}
+  <div class="hide-sm hide-md">
+    <p class="h4">What's on this page</p>
+    {{- /*
+        Note: I don't actually need regular expression here but,
+        because of the argument order which is different with replace,
+        I use replaceRE to improve readability
+    */ -}}
+    {{ .
+      | replaceRE "<ul>" "<ul class=\"list-style-none\">"
+      | replaceRE "<a " "<a class=\"color-fg-muted\" "
+      | safeHTML }}
+  </div>
 {{ end }}
