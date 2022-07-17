@@ -1,9 +1,21 @@
 {{/*
-input dict parameters:
+input any (content), or (dict
     Content: any
     type (optional): "primary" | "outline" | "danger" | "invisible"
     state (optional): "disabled" | "selected"
+    )
 */}}
-<button class="btn{{ with .type }} btn-{{.}}{{end}}" 
-    {{ with .state }}aria-{{.}}="true"{{end}} 
-    type="button">{{.Content}}</button>
+
+{{ $Content := . }}
+{{ $type := "" }}
+{{ $state := "" }}
+
+{{ if reflect.IsMap . }}
+  {{ $Content = .Content }}
+  {{ $type := .type }}
+  {{ $state := .state }}
+{{ end }}
+
+<button class="btn{{ with $type }} btn-{{.}}{{end}}"
+  {{ with $state }}aria-{{.}}="true"{{end}}
+  type="button">{{ $Content }}</button>
