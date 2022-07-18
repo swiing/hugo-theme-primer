@@ -1,15 +1,4 @@
-
-
-  {{ $path := "" }}
-  {{ with .Page }}
-        {{ $path = .Path }}
-  {{ else }}
-        {{ $path = .Path }}
-  {{ end }}
-
-{{ $self := print "/content/" $path }}
-{{ $code0 := readFile $self }}
-{{ $all := findRE "(?s){{<(\\s)*example(\\s)*>}}.*?{{</(\\s)*example(\\s)*>}}" $code0}}
+{{ $all := findRE "(?s){{<(\\s)*example(\\s)*>}}.*?{{</(\\s)*example(\\s)*>}}" .Page.RawContent }}
 
 {{ $code := replaceRE "\n?{{</?(\\s)*example(\\s)*>}}\n?" ""  (index $all .Ordinal ) }}
 
