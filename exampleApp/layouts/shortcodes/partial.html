@@ -1,0 +1,24 @@
+{{- partial (.Get 0) (merge
+  (dict "Content" (.Get 1))
+  (dict "Params" (after 2 .Params))
+) -}}
+
+{{/*  If .Parent is example  */}}
+
+{{- $.Page.Scratch.Set "PartialName" (.Get 0) -}}
+{{ $.Page.Scratch.Set "Content" (.Get 1) -}}
+{{ $.Page.Scratch.Set "Params" (delimit (after 2 $.Params) "\" \"") -}}
+
+{{- $code := print
+  ( printf "{{ partial \"%s\" " ($.Page.Scratch.Get "PartialName") )
+  (cond (not (eq ($.Page.Scratch.Get "Params") "")) (print
+    "(dict\n"
+    ( printf "  \"Content\" \"%s\"\n" ($.Page.Scratch.Get "Content") )
+    ( printf "  \"Params\" (slice \"%s\")\n" ($.Page.Scratch.Get "Params") )
+    ") "
+    ) (printf "\"%s\" " ($.Page.Scratch.Get "Content"))
+  )
+  ( println "}}" )
+-}}
+{{ $.Page.Scratch.Add "Source" (safeHTML $code) -}}
+
