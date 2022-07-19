@@ -1,0 +1,18 @@
+
+{{- /*  type can be
+- "warn", "error", "success"
+- "full"
+- "banner"
+or combination of the above  */ -}}
+
+{{- $Content := . -}}
+{{- $Params := "" -}}
+
+{{- if reflect.IsMap . -}}
+  {{- $Content = .Content -}}
+  {{- $Params = .Params -}}
+{{- end -}}
+
+<div class="flash{{ with $Params }}{{ range . }} flash-{{ . }}{{ end }}{{ end }}">
+  {{ $Content }}
+</div>

@@ -1,0 +1,4 @@
+{{ partial "component/alert.html" (merge
+  (dict "Params" (.Params))
+  (dict "Content" .Inner)
+) -}}
