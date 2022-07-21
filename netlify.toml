@@ -2,8 +2,8 @@
 # but good to track
 
 [build]
-  publish = "exampleApp/public"
-  command = "cd exampleApp && hugo --gc --themesDir ../.."
+  publish = "exampleSite/public"
+  command = "cd exampleSite && hugo --gc --themesDir ../.."
 
 # https://discourse.gohugo.io/t/deploy-your-theme-to-netlify/15508
 #

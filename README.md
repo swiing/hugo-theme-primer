@@ -6,12 +6,12 @@
 
 ## Documentation & experimentation
 
-The directory `exampleApp/` contains an example which
+The directory `exampleSite/` contains an example which
 
 - provides documentation
 - uses itself the theme
 
 ```sh
-cd exampleApp
+cd exampleSite
 hugo [serve] --themesDir ../..
 ```
