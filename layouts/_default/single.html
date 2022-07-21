@@ -13,7 +13,9 @@
     <div class="Layout-main">
 
       <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
-        <div class="Layout-main p-3">{{ partial "content" . }}</div>
+        <div class="Layout-main p-3">
+          {{ partial "content" . }}
+        </div>
         <aside class="Layout-sidebar p-3">
           {{ partial "element/toc.html" .TableOfContents }}
           <hr>

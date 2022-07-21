@@ -4,34 +4,34 @@
 
 {{ define "body" }}
 
-    {{ if eq (len (partial "sidenav.html" .)) 0 }}
-        {{ .Content | emojify }}
-    {{ else }}
-    {{/*  <div class="Layout Layout--divided">  */}}
-    <div class="Layout ">
+  {{ if eq (len (partial "sidenav.html" .)) 0 }}
+    {{ .Content | emojify }}
+  {{ else }}
+  {{/*  <div class="Layout Layout--divided">  */}}
+  <div class="Layout ">
 
-      <div class="Layout-main">
-        <div class="Layout Layout--flowRow-until-lg Layout--sidebarPosition-end Layout--sidebar-narrow">
-          <div class="Layout-main p-3">
-            {{ partial "content" . }}
-          </div>
-          <aside class="Layout-sidebar p-3">
-              <div class="hide-lg">
-              {{ partial "element/toc.html" .TableOfContents }}
-              </div>
-              <hr>
-              {{ partial "component/meta.html" . }}
-          </aside>
+    <div class="Layout-main">
+      <div class="Layout Layout--flowRow-until-lg Layout--sidebarPosition-end Layout--sidebar-narrow">
+        <div class="Layout-main p-3">
+          {{ partial "content" . }}
         </div>
+        <aside class="Layout-sidebar p-3">
+          <div class="hide-lg">
+          {{ partial "element/toc.html" .TableOfContents }}
+          </div>
+          <hr>
+          {{ partial "component/meta.html" . }}
+        </aside>
       </div>
-
-      {{/*  <div class="Layout-divider"></div>  */}}
-
-      <div class="Layout-sidebar color-bg-subtle p-3 border">
-        {{ partial "sidenav.html" . }}
-      </div>
-
     </div>
-    {{ end }}
+
+    {{/*  <div class="Layout-divider"></div>  */}}
+
+    <div class="Layout-sidebar color-bg-subtle p-3 border">
+      {{ partial "sidenav.html" . }}
+    </div>
+
+  </div>
+  {{ end }}
 
 {{ end }}

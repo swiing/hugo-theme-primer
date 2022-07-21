@@ -1,38 +1,42 @@
-{{/*
-    template for _index.md files
-*/}}
+{{/*** template for _index.md files ***/}}
 
-{{ define "partials/content.html" }}{{ .Content | emojify }}{{ end }}
+{{ define "partials/content.html" }}
+  {{ .Content | emojify }}
+{{ end }}
 
 {{/* Inspired by https://gohugo.io/templates/lists/#example-project-directory */}}
 {{ define "_content" }}
-    {{ partial "content" . }}
+  {{ partial "content" . }}
 {{ end }}
 
 {{ define "body" }}
-{{ if eq (len (partial "sidenav.html" .)) 0 }}
-{{- block "_content" . }}{{- end }}
-{{ else }}
-{{/*  <div class="Layout Layout--divided">  */}}
-<div class="Layout">
+  {{ if eq (len (partial "sidenav.html" .)) 0 }}
 
-<div class="Layout-main">
+    {{- block "_content" . }}{{- end }}
 
-    <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
-      <div class="Layout-main p-3">{{- block "_content" . }}{{- end }}</div>
-      <aside class="Layout-sidebar p-3">
-          {{ partial "component/meta.html" . }}
-      </aside>
+  {{ else }}
+
+    {{- /*  <div class="Layout Layout--divided">  */}}
+    <div class="Layout">
+
+      <div class="Layout-main">
+        <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
+          <div class="Layout-main p-3">
+            {{- block "_content" . }}{{ end }}
+          </div>
+          <aside class="Layout-sidebar p-3">
+            {{ partial "component/meta.html" . }}
+          </aside>
+        </div>
+      </div>
+
+      {{/*  <div class="Layout-divider"></div>  */}}
+
+      <div class="Layout-sidebar color-bg-subtle p-3">
+        {{ partial "sidenav.html" . }}
+      </div>
+
     </div>
 
-</div>
-
-{{/*  <div class="Layout-divider"></div>  */}}
-
-<div class="Layout-sidebar color-bg-subtle p-3">
-    {{ partial "sidenav.html" . }}
-</div>
-
-</div>
-{{ end }}
-{{ end }}
+  {{- end }}
+{{- end }}
