@@ -1,0 +1,9 @@
+{{ $Content := . }}
+
+{{ if reflect.IsMap . }}
+  {{ $Content = .Content }}
+{{ end }}
+
+<div class="blankslate">
+  {{ $Content }}
+</div>
