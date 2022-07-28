@@ -12,11 +12,11 @@ A button is a component that can take an optional `type`, and an optional `state
 ### Examples
 
 {{<example>}}
-    {{<button >}}default{{</button>}}
-    {{<button primary>}}primary{{</button>}}
-    {{<button outline>}}outline{{</button>}}
-    {{<button danger>}}danger{{</button>}}
-    {{<button invisible>}}invisible{{</button>}}
+  {{<button >}}default{{</button>}}
+  {{<button primary>}}primary{{</button>}}
+  {{<button outline>}}outline{{</button>}}
+  {{<button danger>}}danger{{</button>}}
+  {{<button invisible>}}invisible{{</button>}}
 {{</example>}}
 
 ## states
@@ -24,6 +24,6 @@ A button is a component that can take an optional `type`, and an optional `state
 ### Examples
 
 {{<example>}}
-    {{<button default disabled>}}disabled{{</button>}}
-    {{<button default selected>}}selected{{</button>}}
+  {{<button default disabled>}}disabled{{</button>}}
+  {{<button default selected>}}selected{{</button>}}
 {{</example>}}
