@@ -1,5 +1,5 @@
 {{ $Current := .Current }}
-{{ range .Pages }}
+{{ range sort .Pages "Title" "asc" }}
 {{ partial "component/sidenav/item.html" (dict
     "subItem" true
     "href" .RelPermalink
