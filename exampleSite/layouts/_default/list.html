@@ -10,6 +10,7 @@
 {{ end }}
 
 {{ define "body" }}
+
   {{ if eq (len (partial "sidenav.html" .)) 0 }}
 
     {{- block "_content" . }}{{- end }}
@@ -22,7 +23,27 @@
       <div class="Layout-main">
         <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
           <div class="Layout-main p-3">
-            {{- block "_content" . }}{{ end }}
+
+            {{ partial "breadcrumbs.html" . }}
+
+            <article class="markdown-body">
+
+              {{ partial "article/title.html" . }}
+
+              {{- block "_content" . }}{{ end }}
+
+              {{/* display list of pages for this section */}}
+              <ul>
+                {{- /* Ranges through content/xxx/*.md */ -}}
+                {{- range .Pages -}}
+                <li>
+                  <a href="{{.RelPermalink}}">{{.Title}}</a>
+                </li>
+                {{ end -}}
+              </ul>
+
+            </article>
+
           </div>
           <aside class="Layout-sidebar p-3">
             {{ partial "component/meta.html" . }}

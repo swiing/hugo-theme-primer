@@ -5,6 +5,8 @@ draft: # true
 layout: wip
 ---
 
-{{<blankslate>}}
-This item does not exist yet. Be the first to [contribute](/guidelines/contributing) to it!
-{{</blankslate>}}
+### This item does not exist yet. {.blankslate-heading}
+
+Be the first to contribute to it!
+
+[learn more](/guidelines/contributing)

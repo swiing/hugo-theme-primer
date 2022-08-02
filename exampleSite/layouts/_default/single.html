@@ -13,7 +13,20 @@
     <div class="Layout-main">
       <div class="Layout Layout--flowRow-until-lg Layout--sidebarPosition-end Layout--sidebar-narrow">
         <div class="Layout-main p-3">
-          {{ partial "content" . }}
+
+          {{ partial "breadcrumbs.html" . }}
+
+          <article class="markdown-body">
+
+            {{ partial "article/title.html" . }}
+
+            {{ partial "content" . }}
+
+            {{/* display source code */}}
+            {{ partial "article/pagesource.html" . }}
+
+          </article>
+
         </div>
         <aside class="Layout-sidebar p-3">
           <div class="hide-lg">

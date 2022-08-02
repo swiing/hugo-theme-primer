@@ -1,7 +1,3 @@
-{{/* https://discourse.gohugo.io/t/how-do-i-override-base-template-blocks-from-a-theme-component/28207/6 */}}
-{{/* This provides a default content, and can be overiden by providing an adhoc partials/content.html */}}
-{{ define "partials/content.html" }}{{ .Content | emojify }}{{ end }}
-
 {{ define "body" }}
 
   {{ if eq (len (partial "sidenav.html" .)) 0 }}
@@ -13,7 +9,20 @@
     <div class="Layout-main">
       <div class="Layout Layout--flowRow-until-lg Layout--sidebarPosition-end Layout--sidebar-narrow">
         <div class="Layout-main p-3">
-          {{ partial "content" . }}
+
+          {{ partial "breadcrumbs.html" . }}
+
+          <article class="markdown-body">
+
+            {{ partial "article/title.html" . }}
+
+            <div class="Box">
+              <div class="blankslate">
+                {{ partial "content.html" . }}
+              </div>
+            </div>
+
+          </article>
         </div>
         <aside class="Layout-sidebar p-3">
           <div class="hide-lg">
