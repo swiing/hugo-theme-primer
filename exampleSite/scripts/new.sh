@@ -11,26 +11,30 @@
 content_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/../content" &>/dev/null && pwd -P)
 themes_dir="$content_dir/../../.."
 
-# create page for primer utilities, if does not exist yet.
-for item in animations borders boxshadow colors details flewbox grid layout margin padding typography
-do
-  if [ ! -f "$content_dir/utilities/$item.md" ]; then
-    hugo new "$content_dir/utilities/$item.md" --themesDir "$themes_dir"
-  fi
-done
+create () {
+  prefix=$1
+  items=$2
 
-# create page for primer components, if does not exist yet.
-for item in alerts avatars blankslate boxoverlay box branchname breadcrumbs buttons dropdown forms header labels layout links loaders markdown navigation pagination popover progress selectmenu subhead timeline toasts tooltips truncate
-do
-  if [ ! -f "$content_dir/components/$item.md" ]; then
-    hugo new "$content_dir/components/$item.md" --themesDir "$themes_dir"
-  fi
-done
+  # append prefix - https://stackoverflow.com/a/13216833
+  for item in "${items[@]/#/$prefix\/}"
 
-# create page for primer marketing, if does not exist yet.
-for item in buttons filters layout links typography
-do
-  if [ ! -f "$content_dir/marketing/$item.md" ]; then
-    hugo new "$content_dir/marketing/$item.md" --themesDir "$themes_dir"
-  fi
-done
+  do
+    file="$content_dir/$item.md"
+    # if the file already exists but has a wip layout
+    # delete (and recreate) to take into account any update of layout/wip.html.
+    if grep -q "layout: wip" "$file"; then
+      rm "$file"
+    fi
+    if [ ! -f "$file" ]; then
+      hugo new "$file" --themesDir "$themes_dir"
+    fi
+  done
+}
+
+# create page for each primer component/marketing/utility, if does not exist yet.
+items=(alerts avatars blankslate boxoverlay box branchname breadcrumbs buttons dropdown forms header labels layout links loaders markdown navigation pagination popover progress selectmenu subhead timeline toasts tooltips truncate)
+create components $items
+items=(buttons filters layout links typography)
+create marketing $items
+items=(animations borders boxshadow colors details flewbox grid layout margin padding typography)
+create utilities $items
