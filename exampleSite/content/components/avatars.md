@@ -1,6 +1,6 @@
 ---
-title: "Breadcrumbs"
-date: 2022-08-02T21:12:05+02:00
+title: "Avatars"
+date: 2022-08-02T21:11:55+02:00
 draft: # true
 layout: wip
 ---
