@@ -1,1 +1,12 @@
 <link href="https://unpkg.com/@primer/css@^19.0.0/dist/primer.css" rel="stylesheet" />
+
+<style>
+/* make sure the sidebar fills the screen */
+/* (64px is the header height; 544px is primer breakpoint for sm) */
+/* I don't like it so much, but let it be */
+@media (min-width: 544px) {
+  .Layout-sidebar.color-bg-subtle {
+    min-height: calc(100vh - 64px)
+  }
+}
+</style>
