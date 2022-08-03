@@ -1,6 +1,7 @@
 ---
 title: "Contribute"
 date: 2022-07-28T22:08:53+02:00
+weight: 90
 ---
 
 ## How to add a component/utility/marketing item?
