@@ -1,8 +1,10 @@
 {{ $Current := .Current }}
-{{ range sort .Pages "Title" "asc" }}
+{{ range .Pages.GroupBy "Weight" "asc"}}
+{{ range sort .Pages.ByTitle -}}
 {{ partial "component/sidenav/item.html" (dict
     "subItem" true
     "href" .RelPermalink
     "Current" (eq . $Current)
     "Content" .Title) }}
+{{ end }}
 {{ end }}

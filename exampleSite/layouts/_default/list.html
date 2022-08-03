@@ -34,11 +34,13 @@
 
               {{/* display list of pages for this section */}}
               <ul>
-                {{- /* Ranges through content/xxx/*.md */ -}}
-                {{- range .Pages -}}
+                {{- /* Ranges through content/xxx/*.md by weight (for guidelines), otherwise title - https://discourse.gohugo.io/t/how-do-i-sort-by-weight-then-title/18297/8?u=swiing */ -}}
+                {{- range .Pages.GroupBy "Weight" "asc"}}
+                {{- range sort .Pages.ByTitle -}}
                 <li>
                   <a href="{{.RelPermalink}}">{{.Title}}</a>
                 </li>
+                {{ end -}}
                 {{ end -}}
               </ul>
 
