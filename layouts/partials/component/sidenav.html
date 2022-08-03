@@ -1,3 +1,4 @@
-<nav class="SideNav {{ .Class }}" style="{{ .Style }}">
-    {{ .Content }}
+{{/* safeHTMLAttr needed otherwise get ZgotmplZ instead */}}
+<nav class="SideNav {{ .Class }}" {{ safeHTMLAttr (print "style=\"" .Style "\"") }}>
+  {{ .Content }}
 </nav>
