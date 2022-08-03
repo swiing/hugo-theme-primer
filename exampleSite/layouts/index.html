@@ -8,27 +8,31 @@
       <div class="Layout Layout--sidebarPosition-end Layout--sidebar-narrow">
 
         <div class="Layout-main p-3">
-          <article class="markdown-body">
+          <article>
 
-            <header>
-              <h1>{{.Title}}</h1>
+            <header class="Subhead">
+              <h1 class="Subhead-heading h1">{{.Title}}</h1>
+              {{ with .Description }}<div class="Subhead-description">{{.}}</div>{{ end }}
             </header>
 
             <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-            {{ .Content | emojify }}
+            <div class="markdown-body">
+              {{ .Content | emojify }}
 
-            <p>
-            <ul class="ActionList">
-              {{ range .Site.RegularPages }}
-              <li class="ActionList-item">
-                <a href="{{.RelPermalink}}" class="ActionList-content">
-                  <span class="ActionList-item-label" >{{.Title}}</span>
-                </a>
-              </li>
-              {{ end }}
-            </ul>
-            </p>
+              <h2>All pages</h2>
+              <p>
+              <ul class="ActionList">
+                {{ range .Site.RegularPages }}
+                <li class="ActionList-item">
+                  <a href="{{.RelPermalink}}" class="ActionList-content">
+                    <span class="ActionList-item-label" >{{.Title}}</span>
+                  </a>
+                </li>
+                {{ end }}
+              </ul>
+              </p>
 
+            </div>
           </article>
         </div>
 
