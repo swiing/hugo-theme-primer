@@ -9,7 +9,19 @@
   </div>
 
   <div class="Header-item">
-    <input type="search" class="form-control Header-input" />
+
+    <form id="search" class="search" role="search">
+      <input type="search" id="search-input" class="form-control Header-input" />
+    </form>
+    <template id="search-result" hidden>
+      <article class="content post">
+        <h2 class="post-title"><a class="summary-title-link"></a></h2>
+        <summary class="summary"></summary>
+        <div class="read-more-container">
+          <a class="read-more-link">Read More »</a>
+        </div>
+      </article>
+    </template>
   </div>
 
   {{ range .Site.Sections }}
