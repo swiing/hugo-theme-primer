@@ -5,8 +5,6 @@ draft: # true
 weight: 2
 ---
 
-
-
 ## Pre-requisite
 
 This guide assumes prior knowledge of hugo. You may want to check the [hugo documentation](https://gohugo.io/documentation/).
@@ -52,3 +50,13 @@ Also, Goldmark lets you inline html directly in your markdown content files. Thi
 
 And by the way, yes, source is a markdown file, even though it includes html tags!
 {{</example>}}
+
+## Primer css version
+
+The theme ships with version {{<version>}} by default. Should you wish to use another version, create a file `layouts/partials/primer/version.html` with the desired version, e.g.
+
+```html
+20.0.1
+```
+
+This will override the default.
