@@ -1,3 +1,6 @@
+{{/*  examples are used to show which result is get,
+given some input in content files or in templates.  */}}
+
 {{ define "partials/output.html" -}}
   {{- /* height will be computed and set later below */ -}}
   <iframe  width="100%" height="0" style="border:none;" ></iframe>
@@ -12,7 +15,7 @@
 
       frame.contentDocument.write(
       `<link href="https://unpkg.com/@primer/css@^19.0.0/dist/primer.css" rel="stylesheet" />`
-      + {{ .Inner }});
+      + {{ .Inner | markdownify }});
 //            resize();
       // wait a bit to make sure stylesheet is applied
       // I coudl'n find a better way :(
@@ -41,20 +44,26 @@
 {{- end -}}
 
 {{- define "partials/html.html" -}}
-  {{- trim . " \n" | safeHTML -}}
+  {{- trim . " \n" | markdownify -}}
 {{- end -}}
 
+
+{{/* This shortcode displays the result(output), the raw input(input) and the html output(html) */}}
 <div class="Box p-0">
   <div class="Box-header">
     {{ partial "output.html" . }}
   </div>
   <div class="Box-row pb-0">
-    Input:
-    {{ $source := $.Page.Scratch.Get "Source" }}
-    {{ $isShortcode := eq $source "" }}
-    <span class="Label float-right ">{{ cond $isShortcode "shortcode" "partial" }}</span>
-    {{- highlight (partial "input.html" .) (cond $isShortcode "md" "go") }}
+    {{/*  I can't chek if is equal to "true" because I have a bug.
+    scratch isPartial becomes e.g. "truetruetrue"
+    when I have several partials in the example.
+    So instead, I simply check it contains "true" */}}
+    {{ $isPartial := in ($.Page.Scratch.Get "isPartial") "true" }}
+    Input in {{ cond $isPartial "layout/some/template.html" "content/some/file.md"}}:
+    <span class="Label float-right ">{{ cond $isPartial "partial" "shortcode" }}</span>
+    {{- highlight (partial "input.html" .) (cond $isPartial "go" "md") }}
     {{ $.Page.Scratch.Set "Source" "" }}{{/* reset so that it does not propagate */}}
+    {{ $.Page.Scratch.Set "isPartial" "" }}{{/* reset so that it does not propagate */}}
   </div>
   <div class="Box-row pb-0">
     Hugo generated output:

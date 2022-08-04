@@ -1,3 +1,7 @@
+
+{{/*  partials cannot be called directly within content files.
+So I emulate by defining a partial shortcode. */}}
+
 {{- partial (.Get 0) (merge
   (dict "Content" (.Get 1))
   (dict "Params" (after 2 .Params))
@@ -20,5 +24,8 @@
   )
   ( println "}}" )
 -}}
+
+{{/*  This is used when part of an `example` shortcode  */}}
 {{ $.Page.Scratch.Add "Source" (safeHTML $code) -}}
+{{ $.Page.Scratch.Add "isPartial" "true" -}}
 
