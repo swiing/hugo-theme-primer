@@ -9,7 +9,7 @@ weight: 2
 
 ## Pre-requisite
 
-This guide assumes prior knowledge of hugo. You may want to check the [hugo documentation](https://gohugo.io/documentation/)
+This guide assumes prior knowledge of hugo. You may want to check the [hugo documentation](https://gohugo.io/documentation/).
 
 ## How does it work?
 
@@ -22,7 +22,7 @@ The theme provides helpers in the form of:
 
 Good news: you can still use it! Here is how, depending on your need.
 
-> Of course, you can still [contribute](../contribute) to implement the missing feature.
+> Of course, you can still [contribute](../contributing) to implement the missing feature.
 
 ### In templates
 
@@ -34,24 +34,21 @@ Since hugo v0.60, the default markdown processor is Goldmark. It allows the foll
 
 In some cases, you can include primer classes directly inside markdown, as follows:
 
-```md
+
+{{<example>}}
 <!-- content/somecontent.md -->
 
 # My title { .Box }
-```
+{{</example>}}
 
 At the time of writing, this is possible for headings only. You can check the [Goldmark documentation](https://github.com/yuin/goldmark/#attributes).
 
-Also, Goldmark let you inline html directly in your markdown content files. This is achieved by setting the [unsafe option](https://gohugo.io/getting-started/configuration-markup/#goldmark). With this, you can do the following:
+Also, Goldmark lets you inline html directly in your markdown content files. This is achieved by setting the [unsafe option](https://gohugo.io/getting-started/configuration-markup/#goldmark). With this, you can do the following:
 
-```html
----
-<Front matter>
----
-
+{{<example>}}
 <!-- content/somecontent.md -->
 
-<h1 class=".Box">My Title</h1>
+<h1 class="Box">My Title</h1>
 
-ANd by the way, yes, this is a markdown file!
-```
+And by the way, yes, source is a markdown file, even though it includes html tags!
+{{</example>}}

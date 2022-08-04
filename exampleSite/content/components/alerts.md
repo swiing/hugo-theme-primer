@@ -50,7 +50,9 @@ Add `banner` to make the message fixed positioned at the top of the page.
 ### Partial
 
 {{<example>}}
-{{<partial "component/alert.html" "Some alert message" warn full banner >}}
+<div style="min-height: 64px;">
+{{<partial "component/alert.html" "Some alert message (warn full banner)" warn full banner >}}
+</div>
 {{</example>}}
 
 ### Shortcode
