@@ -1,6 +1,10 @@
 # Hugo theme primer
 
-`hugo-theme-primer` makes it easy to use css primer in hugo.
+`hugo-theme-primer` makes it easy to use primer in hugo.
+
+- [hugo](https://gohugo.io) is an open source static site generator.
+
+- [primer](https://primer.style) is the framework that makes the foundation of Github's design system.
 
 > :bulb: This is exploratory work to check the concept is worth. The theme is still very incomplete. Your contribution is welcome!
 
