@@ -7,10 +7,10 @@ weight: 3
 
 `hugo-theme-primer` follows the structuration of primer, i.e.:
 
-- [components](./components)
-- [marketing](./marketing)
-- [utilities](./utilities)
+- [components](/components)
+- [marketing](/marketing)
+- [utilities](/utilities)
 
 In addition, it provides useful additions:
 
-- [elements](./elements)
+- [elements](/elements)
