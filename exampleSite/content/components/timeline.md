@@ -10,6 +10,6 @@ layout: wip
 
 ### This item does not exist yet. {.blankslate-heading}
 
-Be the first to contribute to it!
+Be the first to contribute!
 
 [learn more](/guidelines/contributing)
