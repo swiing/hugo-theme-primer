@@ -22,14 +22,16 @@ that you can mix and match to build your site according to your needs.
 
 The theme provides helpers in the form of:
 
-- [partials](https://gohugo.io/templates/partials/): for inclusion in your hugo[templates](https://gohugo.io/templates/)
+- [partials](https://gohugo.io/templates/partials/): for inclusion in your hugo [templates](https://gohugo.io/templates/)
 - [shortcodes](https://gohugo.io/content-management/shortcodes/): for inclusion in your hugo [content](https://gohugo.io/content-management/organization/) files
 
 ## What if the primer item I need is not implemented yet?
 
+This is work in progress, and you mind find a primer item 
+that is not available yet in the theme.
 Good news: you can still use it! Here is how, depending on your need.
 
-> Of course, you can still [contribute](../contributing) to implement the missing feature.
+> :rocket: Of course, you can [contribute](../contributing) to implement the missing feature. That would be terrific!
 
 ### In templates
 
@@ -37,10 +39,9 @@ Templates can take any html; so you can directly include primer classes in your 
 
 ### In content files
 
-Since hugo v0.60, the default markdown processor is Goldmark. It allows the following:
+The default markdown processor for hugo is Goldmark. It allows including (primer) classes in two ways.
 
-In some cases, you can include primer classes directly inside markdown, as follows:
-
+In some cases, you can include classes directly inside markdown, as follows:
 
 {{<example>}}
 # My title { .Box }
@@ -48,7 +49,9 @@ In some cases, you can include primer classes directly inside markdown, as follo
 
 At the time of writing, this is possible for headings only. You can check the [Goldmark documentation](https://github.com/yuin/goldmark/#attributes).
 
-Also, Goldmark lets you inline html directly in your markdown content files. This is achieved by setting the [unsafe option](https://gohugo.io/getting-started/configuration-markup/#goldmark). With this, you can do the following:
+Also, Goldmark lets you inline html directly in your markdown content files.
+You need to set the [unsafe option](https://gohugo.io/getting-started/configuration-markup/#goldmark) in the hugo configuration, though.
+With this, you can do the following:
 
 {{<example>}}
 <h1 class="Box">My Title</h1>
