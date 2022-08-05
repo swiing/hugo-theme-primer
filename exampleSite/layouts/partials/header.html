@@ -9,7 +9,6 @@
   </div>
 
   <div class="Header-item">
-
     <form id="search" class="search" role="search">
       <input type="search" id="search-input" class="form-control Header-input" />
     </form>
@@ -25,13 +24,16 @@
   </div>
 
   {{ range .Site.Sections }}
-  <div class="Header-item{{ if eq (slice .) (last 1 .Site.Sections) }} Header-item--full{{ end }} hide-sm hide-md">
+  <div class="Header-item hide-sm hide-md">
     <a class="Header-link" aria-label="{{ .Title }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
   </div>
   {{ end }}
 
+  <!-- this empty div will actually make sure the next item is positioned to the right -->
+  <div class="Header-item Header-item--full"></div>
+
   <div class="Header-item">
-    <a class="Header-link" aria-label="github" href="https://github.com/swiing/hugo-theme-primer">{{ partial "component/button.html" (":star: Star me" | emojify) }}</a>
+    <a class="Header-link" aria-label="github" href="https://github.com/swiing/hugo-theme-primer">{{ partial "component/button.html" (":star:<span class=\"hide-sm\"> Star me</span>" | emojify) }}</a>
   </div>
 
 
