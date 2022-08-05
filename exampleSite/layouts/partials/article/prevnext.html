@@ -1,0 +1,18 @@
+{{ with .NextInSection }}
+<a href="{{ .RelPermalink }}" class="border-top">
+  {{ partial "component/octicon.html" (dict
+  "icon" "chevron-left"
+  "class" "mr-2"
+) }}
+{{ .Title }}
+</a>
+{{ end }}
+{{ with .PrevInSection }}
+<a href="{{ .RelPermalink }}" class="float-right border-top">
+  {{ .Title }}
+  {{ partial "component/octicon.html" (dict
+  "icon" "chevron-right"
+  "class" "ml-2"
+) }}
+</a>
+{{ end }}
