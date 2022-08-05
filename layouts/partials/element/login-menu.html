@@ -1,20 +1,20 @@
 <details class="details-overlay details-reset js-feature-preview-indicator-container" data-feature-preview-indicator-src="/users/swiing/feature_preview/indicator_check">
-    <summary class="Header-link" aria-label="View profile and more">
-      {{ partial "component/avatar.html" . }}
-      <span class="dropdown-caret"></span>
-    </summary>
-    <details-menu class="dropdown-menu dropdown-menu-sw" style="width: 180px" preload>
-      <include-fragment src="{{ . }}" loading="lazy">
-        <p class="text-center mt-3" data-hide-on-error>
-          {{ partial "element/spinner.html" . }}
-        </p>
-        <p class="ml-1 mb-2 mt-2 color-fg-default" data-show-on-error>
-          {{ partial "util/svgpath16px.html" (dict
-              "icon" "alert"
-              "class" "octicon octicon-alert"
-              "attr" "aria-hidden=\"true\""
-          ) }} Sorry, something went wrong.
-        </p>
-      </include-fragment>
-    </details-menu>
+  <summary class="Header-link" aria-label="View profile and more">
+    {{- partial "component/avatar.html" . -}}
+    <span class="dropdown-caret"></span>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw" style="width: 180px" preload>
+    <include-fragment src="{{ . }}" loading="lazy">
+      <p class="text-center mt-3" data-hide-on-error>
+        {{ partial "element/spinner.html" . }}
+      </p>
+      <p class="ml-1 mb-2 mt-2 color-fg-default" data-show-on-error>
+        {{- partial "util/svgpath16px.html" (dict
+          "icon" "alert"
+          "class" "octicon octicon-alert"
+          "attr" "aria-hidden=\"true\""
+        ) -}} Sorry, something went wrong.
+      </p>
+    </include-fragment>
+  </details-menu>
 </details>

@@ -2,14 +2,14 @@
 {{ $class := "" }}
 
 {{ if reflect.IsMap . }}
-    {{ $icon = .icon }}
-    {{ $class = .class }}
+  {{ $icon = .icon }}
+  {{ $class = .class }}
 {{ else }}{{/* assume string */}}
-    {{ $icon = . }}
-    {{ $class = "" }}
+  {{ $icon = . }}
+  {{ $class = "" }}
 {{ end }}
 
-{{ partial "util/svgpath16px.html" (dict 
-    "icon" $icon
-    "class" (print "octicon octicon-" $icon " " $class )
+{{ partial "util/svgpath16px.html" (dict
+  "icon" $icon
+  "class" (print "octicon octicon-" $icon " " $class )
 )}}
