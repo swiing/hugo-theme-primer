@@ -7,14 +7,23 @@ weight: 2
 
 ## Pre-requisite
 
-This guide assumes prior knowledge of hugo. You may want to check the [hugo documentation](https://gohugo.io/documentation/).
+This guide assumes prior knowledge of hugo. You may want to check first the [hugo documentation](https://gohugo.io/documentation/).
+
+## Philosophy
+
+The `hugo-theme-primer` is not quite a full fledge theme. This is on purpose:
+although it comes with some sort of default layouts,
+the intention is to leave it to you to design the layouts that best match your needs.
+
+Instead, the theme provides **utilities** and **components**
+that you can mix and match to build your site according to your needs.
 
 ## How does it work?
 
 The theme provides helpers in the form of:
 
-- [partials](https://gohugo.io/templates/partials/): for inclusion in your [templates](https://gohugo.io/templates/)
-- [shortcodes](https://gohugo.io/content-management/shortcodes/): for inclusion in your [content](https://gohugo.io/content-management/organization/) files
+- [partials](https://gohugo.io/templates/partials/): for inclusion in your hugo[templates](https://gohugo.io/templates/)
+- [shortcodes](https://gohugo.io/content-management/shortcodes/): for inclusion in your hugo [content](https://gohugo.io/content-management/organization/) files
 
 ## What if the primer item I need is not implemented yet?
 
@@ -34,8 +43,6 @@ In some cases, you can include primer classes directly inside markdown, as follo
 
 
 {{<example>}}
-<!-- content/somecontent.md -->
-
 # My title { .Box }
 {{</example>}}
 
@@ -44,8 +51,6 @@ At the time of writing, this is possible for headings only. You can check the [G
 Also, Goldmark lets you inline html directly in your markdown content files. This is achieved by setting the [unsafe option](https://gohugo.io/getting-started/configuration-markup/#goldmark). With this, you can do the following:
 
 {{<example>}}
-<!-- content/somecontent.md -->
-
 <h1 class="Box">My Title</h1>
 
 And by the way, yes, source is a markdown file, even though it includes html tags!
