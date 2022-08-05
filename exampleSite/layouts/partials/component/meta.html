@@ -2,12 +2,14 @@
 {{ $lastmod := .Lastmod.UTC.Format "Jan 2, 2006" }}
 
 <nav class="">
-    <a class="Link--muted" href="https://primer.style/css/{{ .File.Dir }}{{ if .IsPage }}{{ .File.BaseFileName }}{{ end }}">{{ partial "component/octicon.html" (dict "icon" "link-external" "class" "mr-2")}} primer official documentation</a><br>
-    {{ if ne $date "Jan 1, 0001" }}
-      <span class="">{{ partial "component/octicon.html" (dict "icon" "file" "class" "mr-2")}} Published: {{ $date }}</span><br>
-    {{ end }}
-    {{ if and (ne $lastmod $date) (gt .Lastmod .Date) }}
-      <span class="">{{ partial "component/octicon.html" (dict "icon" "file-diff" "class" "mr-2")}} Last modified: {{ $lastmod }}</span><br>
-    {{ end }}
-    <a class="Link--muted" href="https://github.com/swiing/hugo-theme-primer/blob/main/exampleSite/content/{{ replace .File.Path "\\" "/" }}">{{ partial "component/octicon.html" (dict "icon" "pencil" "class" "mr-2")}} Edit this page on Github</a><br>
+  {{ if (in "components,marketing,utilities" .Section) }}
+  <a class="Link--muted" href="https://primer.style/css/{{ .File.Dir }}{{ if .IsPage }}{{ .File.BaseFileName }}{{ end }}">{{ partial "component/octicon.html" (dict "icon" "link-external" "class" "mr-2")}} primer official documentation</a><br>
+  {{ end }}
+  {{ if ne $date "Jan 1, 0001" }}
+    <span class="">{{ partial "component/octicon.html" (dict "icon" "file" "class" "mr-2")}} Published: {{ $date }}</span><br>
+  {{ end }}
+  {{ if and (ne $lastmod $date) (gt .Lastmod .Date) }}
+    <span class="">{{ partial "component/octicon.html" (dict "icon" "file-diff" "class" "mr-2")}} Last modified: {{ $lastmod }}</span><br>
+  {{ end }}
+  <a class="Link--muted" href="https://github.com/swiing/hugo-theme-primer/blob/main/exampleSite/content/{{ replace .File.Path "\\" "/" }}">{{ partial "component/octicon.html" (dict "icon" "pencil" "class" "mr-2")}} Edit this page on Github</a><br>
 </nav>
