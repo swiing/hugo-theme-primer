@@ -18,21 +18,8 @@
             <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
             <div class="markdown-body">
               {{ .Content | emojify }}
-
-              <h2>All pages</h2>
-              <p>
-              <ul class="ActionList">
-                {{ range .Site.RegularPages }}
-                <li class="ActionList-item">
-                  <a href="{{.RelPermalink}}" class="ActionList-content">
-                    <span class="ActionList-item-label" >{{.Title}}</span>
-                  </a>
-                </li>
-                {{ end }}
-              </ul>
-              </p>
-
             </div>
+
           </article>
         </div>
 
