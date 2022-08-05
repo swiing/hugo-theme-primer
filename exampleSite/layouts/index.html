@@ -37,9 +37,14 @@
         </div>
 
         <aside class="Layout-sidebar p-3">
-            {{ partial "element/toc.html" .TableOfContents }}
-            <hr>
-            {{ partial "component/meta.html" . }}
+          {{/* condition is to make sure TOC is not empty */}}
+          {{ with .TableOfContents }}{{ if gt (len .) 32 }}
+          <div class="hide-lg">
+            {{ partial "element/toc.html" . }}
+          </div>
+          <hr>
+          {{ end }}{{ end }}
+          {{ partial "component/meta.html" . }}
         </aside>
     </div>
     </div>
