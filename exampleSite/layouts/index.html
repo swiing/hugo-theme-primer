@@ -51,7 +51,9 @@
 
     {{/*  <div class="Layout-divider"></div>  */}}
 
-    <div class="Layout-sidebar color-bg-subtle p-3">
+    <!-- border-top for sm (sidenav at the bottom),
+         border-right otherwise (sidenav on the left) -->
+    <div class="Layout-sidebar color-bg-subtle p-3 border-right border-top">
         {{ partial "sidenav.html" . }}
     </div>
 
