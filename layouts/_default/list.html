@@ -6,7 +6,7 @@
 
 {{/* Inspired by https://gohugo.io/templates/lists/#example-project-directory */}}
 {{ define "_content" }}
-    {{ partial "content" . }}
+  {{ partial "content" . }}
 {{ end }}
 
 {{ define "body" }}
@@ -17,13 +17,13 @@
 <div class="Layout">
 
 <div class="Layout-main border p-3">
-    {{- block "_content" . }}{{- end }}
+  {{- block "_content" . }}{{- end }}
 </div>
 
 {{/*  <div class="Layout-divider"></div>  */}}
 
 <div class="Layout-sidebar">
-    {{ partial "sidenav.html" . }}
+  {{ partial "sidenav.html" . }}
 </div>
 
 </div>
