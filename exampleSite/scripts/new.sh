@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # This is a utility script that will run hugo new ... for missing pages.
-# In principle, it should be run only once (unless primer adds new items).
+# In principle, it should be run only once (unless the design system adds new items).
 
-# To ne noted: maybe some pages do not realy make sense in a hugo theme.
+# To ne noted: maybe some pages do not really make sense in a hugo theme.
 # I have not checked each of them individually and may want to remove
 # some in the future, should I find them irrelevent.
 
