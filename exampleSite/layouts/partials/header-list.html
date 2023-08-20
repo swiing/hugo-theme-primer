@@ -1,0 +1,5 @@
+{{ range .Site.Sections }}
+  <div class="Header-item hide-sm hide-md">
+    {{ partial "component/header/link.html" (dict "label" .Title "href" .RelPermalink "Content" .Title )}}
+  </div>
+{{ end }}

@@ -1,50 +1,11 @@
-<div class="Header">
-
-  {{/*  <nav id="global-nav" class="d-flex flex-column flex-md-row flex-self-stretch flex-md-self-auto" aria-label="Global"></nav>
-  <a class="Header-link py-md-3 d-block d-md-none py-2 border-top border-md-top-0 border-white-fade" data-ga-click="Header, click, Nav menu - item:dashboard:user" aria-label="Dashboard" data-turbo="false" href="/dashboard">Dashboard</a>
-  <a class="js-selected-navigation-item Header-link mt-md-n3 mb-md-n3 py-2 py-md-3 mr-0 mr-md-3 border-top border-md-top-0 border-white-fade" data-hotkey="g p" data-ga-click="Header, click, Nav menu - item:pulls context:user" aria-label="Pull requests you created" data-turbo="false" data-selected-links="/pulls /pulls/assigned /pulls/mentioned /pulls" href="/pulls"> Pull <span class="d-inline d-md-none d-lg-inline"> request</span>s </a>  */}}
-
-  <div class="Header-item">
-    {{ partial "header/home.html" . }}
-  </div>
-
-  <div class="Header-item">
-    <form id="search" class="search" role="search">
-      <input type="search" id="search-input" class="form-control Header-input" />
-    </form>
-    <template id="search-result" hidden>
-      <article class="content post">
-        <h2 class="post-title"><a class="summary-title-link"></a></h2>
-        <summary class="summary"></summary>
-        <div class="read-more-container">
-          <a class="read-more-link">Read More »</a>
-        </div>
-      </article>
-    </template>
-  </div>
-
-  {{ range .Site.Sections }}
-  <div class="Header-item hide-sm hide-md">
-    <a class="Header-link" aria-label="{{ .Title }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
-  </div>
-  {{ end }}
-
-  <!-- this empty div will actually make sure the next item is positioned to the right -->
-  <div class="Header-item Header-item--full"></div>
-
-  <div class="Header-item">
-    <a class="Header-link" aria-label="github" href="https://github.com/swiing/hugo-theme-primer">{{ partial "component/button.html" (":star:<span class=\"hide-sm\"> Star me</span>" | emojify) }}</a>
-  </div>
-
-
-  {{/*  <div class="Header-item mr-0">
-    <img class="avatar" height="20" alt="@octocat" src="https://github.com/octocat.png" width="20">
-  </div>  */}}
-
-  <!-- drop down menu -->
-  {{/*  <div class="Header-item position-relative mr-0 d-none d-md-flex">
-    {{ partial "element/login-menu.html" . }}
-  </div>  */}}
-
-
-</div>
+{{/* the 'full' item generates an empty div that makes sure the following item is positioned to the right */}}
+{{ 
+  partial "component/header.html"
+  (slice 
+    (partial "component/header/item.html" (partial "header/home.html" . ))
+    (partial "component/header/item.html" (partial "header-search.html" . ))
+    (partial "header-list.html" .)
+    (partial "component/header/item.html" (dict "full" "true"))
+    (partial "component/header/item.html" (partial "component/header/link.html" (dict "href" "https://github.com/swiing/hugo-theme-primer" "Content" (partial "component/button.html" (":star:<span class=\"hide-sm\"> Star me</span>" | emojify)))))
+  )
+}}

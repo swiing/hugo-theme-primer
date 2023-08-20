@@ -1,0 +1,11 @@
+{{ $Content := . }}
+{{ $full := "" }}
+
+{{ if reflect.IsMap . }}
+  {{ $Content = .Content }}
+  {{ $full = .full }}
+{{ end }}
+
+<div class="Header-item hide-sm hide-md{{ with $full }} Header-item--full{{ end }}">
+  {{ $Content }}
+</div>
