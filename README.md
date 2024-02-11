@@ -1,3 +1,5 @@
+> :bulb: The primer team has discontinued primer.css. Such decision makes this repo mostly deprecated, at least in its current form. Primer is still usable as react components.
+ 
 # Hugo theme primer
 
 `hugo-theme-primer` makes it easy to use primer in hugo.
